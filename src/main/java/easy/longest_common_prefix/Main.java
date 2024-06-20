@@ -1,9 +1,6 @@
 package easy.longest_common_prefix;
 
-
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
     /*
@@ -25,23 +22,42 @@ public class Main {
     strs[i] consists of only lowercase English letters.
      */
     public static void main(String[] args) {
-        List<Data> arrayData = new ArrayList<>();
-        Data data1 = new Data(new String[]{"flower","flow","flight"},"fl");
-        Data data2 = new Data(new String[]{"dog","racecar","car"}, "");
-        Data data3 = new Data(new String[]{"a"}, "a");
-        arrayData.add(data1);
-        arrayData.add(data2);
-        arrayData.add(data3);
+        ArrayList<Data> arrayData = fillArray();
 
         for (Data data : arrayData) {
             String result = new MySolution().longestCommonPrefix(data.getStrs());
             System.out.println("My solution: " + checkResult(result, data.getOutput()));
         }
-//        for (Data data : arrayData) {
-//            int[] resultEx = new Solution1().twoSum(data.getNums(), data.getTarget());
-//            System.out.println("Solution1: " + checkResult(resultEx, data.getOutput()));
-//        }
+        for (Data data : arrayData) {
+            String result = new Solution1().longestCommonPrefix(data.getStrs());
+            System.out.println("Solution1: " + checkResult(result, data.getOutput()));
+        }
+        for (Data data : arrayData) {
+            String result = new Solution2().longestCommonPrefix(data.getStrs());
+            System.out.println("Solution2: " + checkResult(result, data.getOutput()));
+        }
 
+    }
+
+    public static ArrayList<Data> fillArray(){
+        ArrayList<Data> arrayData = new ArrayList<>();
+        Data data1 = new Data(new String[]{"flower","flow","flight"},"fl");
+        Data data2 = new Data(new String[]{"dog","racecar","car"}, "");
+        Data data3 = new Data(new String[]{"a"}, "a");
+        Data data4 = new Data(new String[]{"ab", "a"}, "a");
+        Data data5 = new Data(new String[]{}, "");
+        Data data6 = new Data(new String[]{"", ""}, "");
+        Data data7 = new Data(new String[]{"flower","flower","flower", "flower"},"flower");
+        Data data8 = new Data(new String[]{"cir","car"},"c");
+        arrayData.add(data1);
+        arrayData.add(data2);
+        arrayData.add(data3);
+        arrayData.add(data4);
+        arrayData.add(data5);
+        arrayData.add(data6);
+        arrayData.add(data7);
+        arrayData.add(data8);
+        return arrayData;
     }
 
     public static boolean checkResult(String strIn, String strOut) {

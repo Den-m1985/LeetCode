@@ -5,43 +5,46 @@ import java.util.Comparator;
 import java.util.stream.Collectors;
 
 public class MySolution {
-    /*
-    Input: strs = ["flower","flow","flight"]
-        Output: "fl"
-     */
     public String longestCommonPrefix(String[] strs) {
-        if (strs.length == 1){
+        if (strs.length == 0){
+            return "";
+        }
+        if (strs.length == 1) {
             return strs[0];
         }
 
         ArrayList<char[]> array = new ArrayList<>();
-        for (int i = 0; i < strs.length; i++) {
-            array.add(strs[i].toCharArray());
+        for (String str : strs) {
+            if (str.equals("")) {
+                return "";
+            }
+            array.add(str.toCharArray());
         }
         array.sort(Comparator.comparing(o -> o.length));
+
         StringBuilder result = new StringBuilder();
         int index = 0;
-        for (int i = 0; i < array.size(); i++) {
-            char[] exI = array.get(i);
-            char symbolIndex = array.get(i)[i];
-            for (int j = 1; j < array.size(); j++) {
-                char[] exJ = array.get(j);
-                char symbolIndexJ = array.get(j)[i];
-                if (symbolIndex == symbolIndexJ) {
+        char[] startArray = array.get(0);
+        int indexFolow = 0;
+        int repeatLetter= 0;
+        while (indexFolow < startArray.length) {
+            for (int i = 0; i < array.size(); i++) {
+                char[] followArray = array.get(i);
+                char i1 = startArray[indexFolow];
+                char i2 = followArray[indexFolow];
+                if (i1 == i2) {
                     index++;
-                    if (index == 0){
-                        result.append(symbolIndex);
+                    if (index == array.size()) {
+                        result.append((i1));
+                        repeatLetter++;
                     }
                 }
             }
-            index =0;
-
-
-//            for (char symbol : array.get(i)) {
-//                if (symbol == first[i-1]) {
-//                    result.append(symbol);
-//                }
-//            }
+            index = 0;
+            indexFolow++;
+            if (repeatLetter != indexFolow){
+                return result.toString();
+            }
         }
         return result.toString();
     }

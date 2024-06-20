@@ -36,12 +36,14 @@ public class Main {
         Data data4 = new Data("{[]}", true);
         Data data5 = new Data("({)}", false);
         Data data6 = new Data("(){}}{", false);
+        Data data7 = new Data("[({])}", false);
         arrayData.add(data1);
         arrayData.add(data2);
         arrayData.add(data3);
         arrayData.add(data4);
         arrayData.add(data5);
         arrayData.add(data6);
+        arrayData.add(data7);
 
         return arrayData;
     }

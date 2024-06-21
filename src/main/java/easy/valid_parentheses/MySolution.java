@@ -1,10 +1,8 @@
 package easy.valid_parentheses;
 
-import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.stream.Collectors;
 
 public class MySolution {
     public boolean isValid(String s) {
@@ -15,69 +13,39 @@ public class MySolution {
         if (s.length() <= 1 || (s.length() % 2) != 0) {
             return false;
         }
-        ArrayList<String> array = new ArrayList<>();
-        for (int i = 0; i < s.length(); i++) {
-            array.add("" + s.charAt(i));
-        }
+        ArrayList<String> array = s.chars()
+                .mapToObj(c -> Character.toString((char) c))
+                .collect(Collectors.toCollection(ArrayList::new));
+
         if (array.size() == 2) {
             String value = arrayHash.get(array.get(0));
             return array.get(1).equals(value);
         }
 
-        for (int i = 0; i < array.size(); i++) {
-            String x = array.get(i);
-            if (arrayHash.containsKey(x)) {  // if ( present in arrayHash
-
-                for (Map.Entry<String, String> entryX : arrayHash.entrySet()) {
-                    String key = entryX.getKey();
-                    if (key.equals(x)) {  // find key
-                        String value = entryX.getValue();
-
-
-                        for (int j = i + 1; j < array.size(); j++) {
-                            String y = array.get(j);
-                            int lengthBeetwin = j - i;
-                            if (value.equals(y) && lengthBeetwin % 2 != 0) {
-                                boolean check = isBracketClose(array, arrayHash, array.get(i + 1), i, j);
-
-                                array.set(i, "?");
-                                array.set(j, "?");
-                                break;
-
-                            }
-                        }
-                    }
-                }
-            }
+        int countBefor = 0;
+        while (array.size() != countBefor) {
+            countBefor = array.size();
+            findNearestBracket(array, arrayHash, 0, 0);
         }
-        for (String b : array) {
-            if (!b.equals("?")) {
-                return false;
-            }
-        }
-        return true;
+        return array.size() == 0;
     }
 
-    public boolean checkClose(ArrayList<String> array, HashMap<String, String> arrayHash, String key) {
-        String value = arrayHash.get(key);
-        for (int k = 0; k < array.size(); k++) {
-            String temp = array.get(k);
-            if (temp.equals(value)) {
-                return true;
-            }
+    public void findNearestBracket(ArrayList<String> array, HashMap<String, String> arrayHash, int i, int maxRecursionDepth) {
+        maxRecursionDepth++;
+        if (i >= array.size() - 1 || maxRecursionDepth == 4000) {
+            return;
         }
-        return false;
-    }
-
-    public boolean isBracketClose(ArrayList<String> array, HashMap<String, String> arrayHash, String key, int start, int end) {
-        String value = arrayHash.get(key);
-        for (int k = start; k < end; k++) {
-            String temp = array.get(k);
-            if (temp.equals(value)) {
-                return true;
-            }
-        }
-        return false;
+        String key = array.get(i);
+        String keyNext = array.get(i + 1);
+        if (arrayHash.containsKey(key)) {  // if key contain open bracket?
+            String value = arrayHash.get(key);
+            if (keyNext.equals(value)) {
+                array.remove(i);
+                array.remove(i);
+                i = 0;
+            } else i++;
+        } else i++;
+        findNearestBracket(array, arrayHash, i, maxRecursionDepth);
     }
 
 }

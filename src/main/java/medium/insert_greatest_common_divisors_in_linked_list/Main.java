@@ -61,26 +61,26 @@ public class Main {
         if (result == null || output == null){
             return false;
         }
-        ListNode listNodeResultCurrent = result;
-        ListNode listNodeOutputCurrent = output;
-        while (listNodeOutputCurrent.next != null || listNodeResultCurrent.next !=null) {
-            int resultCurrent = listNodeResultCurrent.val;
-            int resultOutput = listNodeOutputCurrent.val;
-            if(resultOutput != resultCurrent || resultCurrent == -101){
+        //ListNode listNodeResultCurrent = result;
+        //ListNode listNodeOutputCurrent = output;
+        while (output.next != null || result.next !=null) {
+            int resultCurrent = result.val;
+            int resultOutput = output.val;
+            if(resultOutput != resultCurrent){
                 return false;
             }
-            listNodeResultCurrent = getLastNode(result);
-            listNodeOutputCurrent = getLastNode(output);
+            //listNodeResultCurrent = getLastNode(result);
+            //listNodeOutputCurrent = getLastNode(output);
         }
         return true;
     }
 
-    public static ListNode getLastNode(ListNode listNode) {
-        ListNode listNodeTemp = listNode;
-        while (listNodeTemp.next != null) {
-            listNodeTemp = listNodeTemp.next;
-        }
-        return listNodeTemp;
-    }
+//    public static ListNode getLastNode(ListNode listNode) {
+//        ListNode listNodeTemp = listNode;
+//        while (listNodeTemp.next != null) {
+//            listNodeTemp = listNodeTemp.next;
+//        }
+//        return listNodeTemp;
+//    }
 
 }

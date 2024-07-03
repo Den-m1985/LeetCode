@@ -2,14 +2,10 @@ package medium.insert_greatest_common_divisors_in_linked_list;
 
 
 public class Data {
-    protected final int[] head;
-    protected final int[] output;
     private ListNode listNode = new ListNode();
     private ListNode listNodeOutput = new ListNode();
 
     public Data(int[] input, int[] output) {
-        this.head = input;
-        this.output = output;
         listNode =fillNode(input, listNode);
         listNodeOutput =fillNode(output, listNodeOutput);
     }

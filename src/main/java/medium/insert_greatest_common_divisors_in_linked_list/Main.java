@@ -34,13 +34,13 @@ class Main {
     1 <= Node.val <= 1000
      */
     public static void main(String[] args) {
-        ArrayList<Data> arrayData =fillArray();
-        for (Data data:arrayData) {
+        ArrayList<Data> arrayData = fillArray();
+        for (Data data : arrayData) {
             ListNode result = new MySolution().insertGreatestCommonDivisors(data.getListNode());
             boolean bool = check(result, data.getListNodeOutput());
             System.out.println("My solution " + bool);
         }
-        for (Data data:arrayData) {
+        for (Data data : arrayData) {
             ListNode result = new Solution1().insertGreatestCommonDivisors(data.getListNode());
             boolean bool = check(result, data.getListNodeOutput());
             System.out.println("Solution1 " + bool);
@@ -49,24 +49,24 @@ class Main {
 
     static ArrayList<Data> fillArray() {
         ArrayList<Data> arrayData = new ArrayList<>();
-        Data data1 = new Data(new int[]{18,6,10,3}, new int[]{18,6,6,2,10,1,3});
+        Data data1 = new Data(new int[]{18, 6, 10, 3}, new int[]{18, 6, 6, 2, 10, 1, 3});
         Data data2 = new Data(new int[]{7}, new int[]{7});
         arrayData.add(data1);
         arrayData.add(data2);
         return arrayData;
     }
 
-    static boolean check(ListNode result, ListNode output){
-        if (result == null && output == null){
+    static boolean check(ListNode result, ListNode output) {
+        if (result == null && output == null) {
             return true;
         }
-        if (result == null || output == null){
+        if (result == null || output == null) {
             return false;
         }
-        while (output.next != null || result.next !=null) {
+        while (output.next != null || result.next != null) {
             int resultCurrent = result.val;
             int resultOutput = output.val;
-            if(resultOutput != resultCurrent){
+            if (resultOutput != resultCurrent) {
                 return false;
             }
             output = output.next;

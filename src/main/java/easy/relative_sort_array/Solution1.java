@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Solution1 {
+class Solution1 {
 
     public int[] relativeSortArray(int[] arr1, int[] arr2) {
         List<Integer> result = new ArrayList<>();
-
         // Traverse through the relative order array
         for (int i = 0; i < arr2.length; i++) {
             // Traverse through the target array
@@ -22,7 +21,6 @@ public class Solution1 {
                 }
             }
         }
-
         // Sort the remaining elements in the target array
         Arrays.sort(arr1);
         // Add the remaining elements to the result array
@@ -31,7 +29,6 @@ public class Solution1 {
                 result.add(arr1[i]);
             }
         }
-
         // Convert ArrayList to array
         return result.stream().mapToInt(Integer::intValue).toArray();
     }

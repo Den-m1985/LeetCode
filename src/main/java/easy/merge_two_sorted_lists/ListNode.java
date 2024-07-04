@@ -1,6 +1,6 @@
 package easy.merge_two_sorted_lists;
 
-public class ListNode {
+class ListNode {
     int val;
     ListNode next;
 

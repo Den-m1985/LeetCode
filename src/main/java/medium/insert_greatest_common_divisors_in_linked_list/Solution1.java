@@ -10,9 +10,9 @@ class Solution1 {
         return a;
     }
 
-    ListNode insertGreatestCommonDivisors(ListNode head) {
+    public ListNode insertGreatestCommonDivisors(ListNode head) {
         ListNode curNode = head;
-        while(curNode.next != null) {
+        while (curNode.next != null) {
             int gcd = gcd(curNode.val, curNode.next.val);
             ListNode node = new ListNode(gcd);
             node.next = curNode.next;

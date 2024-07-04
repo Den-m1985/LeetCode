@@ -1,6 +1,6 @@
 package easy.relative_sort_array;
 
-public class MainSortArray {
+class MainSortArray {
     /*
    1122. Relative Sort Array
    Given two arrays arr1 and arr2, the elements of arr2 are distinct,
@@ -23,9 +23,9 @@ public class MainSortArray {
     public static void main(String[] args) {
         int[] arr1 = new int[]{2, 3, 1, 3, 2, 4, 6, 7, 9, 2, 19};
         int[] arr2 = new int[]{2, 1, 4, 3, 9, 6};
-        int[] output = new int[] {2,2,2,1,4,3,3,9,6,7,19};
+        int[] output = new int[]{2, 2, 2, 1, 4, 3, 3, 9, 6, 7, 19};
 
-        int[] resultEx1 = new Example1().relativeSortArray(arr1.clone(), arr2);
+        int[] resultEx1 = new MySolution().relativeSortArray(arr1.clone(), arr2);
         System.out.println(checkResult(resultEx1, output));
 
         int[] resultSolution1 = new Solution1().relativeSortArray(arr1.clone(), arr2);
@@ -36,9 +36,9 @@ public class MainSortArray {
     }
 
 
-    public static boolean checkResult(int[] arr1, int[] arr2){
+    static boolean checkResult(int[] arr1, int[] arr2) {
         for (int i = 0; i < arr1.length; i++) {
-            if (arr1[i] != arr2[i]){
+            if (arr1[i] != arr2[i]) {
                 return false;
             }
         }

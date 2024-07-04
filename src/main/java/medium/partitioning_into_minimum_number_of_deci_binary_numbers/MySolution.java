@@ -3,7 +3,7 @@ package medium.partitioning_into_minimum_number_of_deci_binary_numbers;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class MySolution {
+class MySolution {
     public int minPartitions(String n) {
         int count;
         String[] strArray = n.split("");

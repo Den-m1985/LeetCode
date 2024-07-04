@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.stream.Collectors;
 
-public class MySolution {
-    public boolean isValid(String s) {
+class MySolution {
+    boolean isValid(String s) {
         HashMap<String, String> arrayHash = new HashMap<>();
         arrayHash.put("(", ")");
         arrayHash.put("[", "]");
@@ -30,7 +30,7 @@ public class MySolution {
         return array.size() == 0;
     }
 
-    public void findNearestBracket(ArrayList<String> array, HashMap<String, String> arrayHash, int i, int maxRecursionDepth) {
+    void findNearestBracket(ArrayList<String> array, HashMap<String, String> arrayHash, int i, int maxRecursionDepth) {
         maxRecursionDepth++;
         if (i >= array.size() - 1 || maxRecursionDepth == 4000) {
             return;

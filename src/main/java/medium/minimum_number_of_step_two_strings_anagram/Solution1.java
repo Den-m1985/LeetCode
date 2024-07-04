@@ -1,6 +1,6 @@
 package medium.minimum_number_of_step_two_strings_anagram;
 
-public class Solution1 {
+class Solution1 {
     public int minSteps(String s, String t) {
         int[] countS = new int[26];
         int[] countT = new int[26];

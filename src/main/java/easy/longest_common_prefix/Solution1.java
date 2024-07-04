@@ -1,6 +1,6 @@
 package easy.longest_common_prefix;
 
-public class Solution1 {
+class Solution1 {
     public String longestCommonPrefix(String[] strs) {
         if (strs.length == 0) return "";
         String prefix = strs[0];

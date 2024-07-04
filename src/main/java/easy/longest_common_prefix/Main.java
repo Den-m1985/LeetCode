@@ -2,7 +2,7 @@ package easy.longest_common_prefix;
 
 import java.util.ArrayList;
 
-public class Main {
+class Main {
     /*
     Write a function to find the longest common prefix string amongst an array of strings.
     If there is no common prefix, return an empty string "".
@@ -25,30 +25,30 @@ public class Main {
         ArrayList<Data> arrayData = fillArray();
 
         for (Data data : arrayData) {
-            String result = new MySolution().longestCommonPrefix(data.getStrs());
-            System.out.println("My solution: " + checkResult(result, data.getOutput()));
+            String result = new MySolution().longestCommonPrefix(data.strs());
+            System.out.println("My solution: " + checkResult(result, data.output()));
         }
         for (Data data : arrayData) {
-            String result = new Solution1().longestCommonPrefix(data.getStrs());
-            System.out.println("Solution1: " + checkResult(result, data.getOutput()));
+            String result = new Solution1().longestCommonPrefix(data.strs());
+            System.out.println("Solution1: " + checkResult(result, data.output()));
         }
         for (Data data : arrayData) {
-            String result = new Solution2().longestCommonPrefix(data.getStrs());
-            System.out.println("Solution2: " + checkResult(result, data.getOutput()));
+            String result = new Solution2().longestCommonPrefix(data.strs());
+            System.out.println("Solution2: " + checkResult(result, data.output()));
         }
 
     }
 
-    public static ArrayList<Data> fillArray(){
+    static ArrayList<Data> fillArray() {
         ArrayList<Data> arrayData = new ArrayList<>();
-        Data data1 = new Data(new String[]{"flower","flow","flight"},"fl");
-        Data data2 = new Data(new String[]{"dog","racecar","car"}, "");
+        Data data1 = new Data(new String[]{"flower", "flow", "flight"}, "fl");
+        Data data2 = new Data(new String[]{"dog", "racecar", "car"}, "");
         Data data3 = new Data(new String[]{"a"}, "a");
         Data data4 = new Data(new String[]{"ab", "a"}, "a");
         Data data5 = new Data(new String[]{}, "");
         Data data6 = new Data(new String[]{"", ""}, "");
-        Data data7 = new Data(new String[]{"flower","flower","flower", "flower"},"flower");
-        Data data8 = new Data(new String[]{"cir","car"},"c");
+        Data data7 = new Data(new String[]{"flower", "flower", "flower", "flower"}, "flower");
+        Data data8 = new Data(new String[]{"cir", "car"}, "c");
         arrayData.add(data1);
         arrayData.add(data2);
         arrayData.add(data3);
@@ -60,7 +60,7 @@ public class Main {
         return arrayData;
     }
 
-    public static boolean checkResult(String strIn, String strOut) {
+    static boolean checkResult(String strIn, String strOut) {
         return strIn != null && strIn.equals(strOut);
     }
 

@@ -2,7 +2,7 @@ package easy.valid_parentheses;
 
 import java.util.ArrayList;
 
-public class Main {
+class Main {
     /*
     Given a string s containing just the characters
     '(', ')', '{', '}', '[' and ']'
@@ -20,15 +20,13 @@ public class Main {
      */
     public static void main(String[] args) {
         ArrayList<Data> arrayData = fillArray();
-
         for (Data data : arrayData) {
-            boolean result = new MySolution().isValid(data.input);
-            System.out.println("My solution: " + checkResult(result, data.output));
+            boolean result = new MySolution().isValid(data.input());
+            System.out.println("My solution: " + checkResult(result, data.output()));
         }
-
     }
 
-    public static ArrayList<Data> fillArray() {
+    static ArrayList<Data> fillArray() {
         ArrayList<Data> arrayData = new ArrayList<>();
         Data data = new Data("(", false);
         Data data1 = new Data("()", true);
@@ -123,11 +121,10 @@ public class Main {
         arrayData.add(data8);
         arrayData.add(data9);
         arrayData.add(data10);
-
         return arrayData;
     }
 
-    public static boolean checkResult(boolean strIn, boolean strOut) {
+    static boolean checkResult(boolean strIn, boolean strOut) {
         return strIn == strOut;
     }
 

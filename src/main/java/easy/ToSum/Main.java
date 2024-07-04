@@ -3,7 +3,7 @@ package easy.ToSum;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
+class Main {
     /*
     Given an array of integers nums and an integer target,
     return indices of the two numbers such that they add up to target.
@@ -42,17 +42,17 @@ public class Main {
         arrayData.add(data3);
 
         for (Data data : arrayData) {
-            int[] resultEx = new MySolution().twoSum(data.getNums(), data.getTarget());
-            System.out.println("My solution: " + checkResult(resultEx, data.getOutput()));
+            int[] resultEx = new MySolution().twoSum(data.nums(), data.target());
+            System.out.println("My solution: " + checkResult(resultEx, data.output()));
         }
         for (Data data : arrayData) {
-            int[] resultEx = new Solution1().twoSum(data.getNums(), data.getTarget());
-            System.out.println("Solution1: " + checkResult(resultEx, data.getOutput()));
+            int[] resultEx = new Solution1().twoSum(data.nums(), data.target());
+            System.out.println("Solution1: " + checkResult(resultEx, data.output()));
         }
 
     }
 
-    public static boolean checkResult(int[] arr1, int[] arr2) {
+    static boolean checkResult(int[] arr1, int[] arr2) {
         for (int i = 0; i < arr1.length; i++) {
             if (arr1[i] != arr2[i]) {
                 return false;

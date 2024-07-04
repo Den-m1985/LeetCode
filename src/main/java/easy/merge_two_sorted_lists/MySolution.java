@@ -3,9 +3,9 @@ package easy.merge_two_sorted_lists;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class MySolution {
+class MySolution {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        if (list1 == null){
+        if (list1 == null) {
             return list2;
         } else if (list2 == null) {
             return list1;
@@ -17,7 +17,7 @@ public class MySolution {
         return fillNode(array1);
     }
 
-    public ArrayList<Integer> fillArray(ListNode list) {
+    ArrayList<Integer> fillArray(ListNode list) {
         ArrayList<Integer> array = new ArrayList<>();
         ListNode listNodeTemp = list;
         boolean stop = true;
@@ -34,7 +34,7 @@ public class MySolution {
         return array;
     }
 
-    public ListNode fillNode(ArrayList<Integer> array) {
+    ListNode fillNode(ArrayList<Integer> array) {
         ListNode listNode = new ListNode();
         if (array.size() == 0) {
             listNode.val = -101;
@@ -61,7 +61,7 @@ public class MySolution {
         return listNode;
     }
 
-    public ListNode getLastNode(ListNode listNode) {
+    ListNode getLastNode(ListNode listNode) {
         ListNode listNodeTemp = listNode;
         while (listNodeTemp.next != null) {
             listNodeTemp = listNodeTemp.next;

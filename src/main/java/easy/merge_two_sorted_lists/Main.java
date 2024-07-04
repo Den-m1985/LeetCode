@@ -1,9 +1,8 @@
 package easy.merge_two_sorted_lists;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class Main {
+class Main {
     /*
     21. Merge Two Sorted Lists
     You are given the heads of two sorted linked lists list1 and list2.
@@ -29,27 +28,27 @@ public class Main {
     Both list1 and list2 are sorted in non-decreasing order.
      */
     public static void main(String[] args) {
-        ArrayList<Data> arrayData =fillArray();
-        for (Data data:arrayData) {
+        ArrayList<Data> arrayData = fillArray();
+        for (Data data : arrayData) {
             long start = System.nanoTime();
-           ListNode result = new MySolution().mergeTwoLists(data.getListNode1(), data.getListNode2());
-           boolean bool = check(result, data.getListNode3());
+            ListNode result = new MySolution().mergeTwoLists(data.getListNode1(), data.getListNode2());
+            boolean bool = check(result, data.getListNode3());
             System.out.println("My solution " + bool);
             long end = System.nanoTime();
-            System.out.println("Time in mlSec: " + (end - start)/1000000);
+            System.out.println("Time in mlSec: " + (end - start) / 1000000);
 
             long start2 = System.nanoTime();
             ListNode result2 = new Solution1().mergeTwoLists(data.getListNode1(), data.getListNode2());
             boolean bool2 = check(result2, data.getListNode3());
             System.out.println("Solution1 " + bool2);
             long end2 = System.nanoTime();
-            System.out.println("Time in mlSec: " + (end2 - start2)/1000000);
+            System.out.println("Time in mlSec: " + (end2 - start2) / 1000000);
         }
     }
 
-    public static ArrayList<Data> fillArray() {
+    static ArrayList<Data> fillArray() {
         ArrayList<Data> arrayData = new ArrayList<>();
-        Data data1 = new Data(new int[]{1,2,4}, new int[]{1,3,4}, new int[]{1,1,2,3,4,4});
+        Data data1 = new Data(new int[]{1, 2, 4}, new int[]{1, 3, 4}, new int[]{1, 1, 2, 3, 4, 4});
         Data data2 = new Data(null, null, null);
         Data data3 = new Data(null, new int[]{0}, new int[]{0});
 
@@ -59,19 +58,19 @@ public class Main {
         return arrayData;
     }
 
-    public static boolean check(ListNode result, ListNode output){
-        if (result == null && output == null){
+    static boolean check(ListNode result, ListNode output) {
+        if (result == null && output == null) {
             return true;
         }
-        if (result == null || output == null){
+        if (result == null || output == null) {
             return false;
         }
         ListNode listNodeResultCurrent = result;
         ListNode listNodeOutputCurrent = output;
-        while (listNodeOutputCurrent.next != null || listNodeResultCurrent.next !=null) {
+        while (listNodeOutputCurrent.next != null || listNodeResultCurrent.next != null) {
             int resultCurrent = listNodeResultCurrent.val;
             int resultOutput = listNodeOutputCurrent.val;
-            if(resultOutput != resultCurrent || resultCurrent == -101){
+            if (resultOutput != resultCurrent || resultCurrent == -101) {
                 return false;
             }
             listNodeResultCurrent = getLastNode(result);
@@ -80,7 +79,7 @@ public class Main {
         return true;
     }
 
-    public static ListNode getLastNode(ListNode listNode) {
+    static ListNode getLastNode(ListNode listNode) {
         ListNode listNodeTemp = listNode;
         while (listNodeTemp.next != null) {
             listNodeTemp = listNodeTemp.next;

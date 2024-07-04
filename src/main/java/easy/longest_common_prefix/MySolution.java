@@ -2,11 +2,10 @@ package easy.longest_common_prefix;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.stream.Collectors;
 
-public class MySolution {
+class MySolution {
     public String longestCommonPrefix(String[] strs) {
-        if (strs.length == 0){
+        if (strs.length == 0) {
             return "";
         }
         if (strs.length == 1) {
@@ -26,7 +25,7 @@ public class MySolution {
         int index = 0;
         char[] startArray = array.get(0);
         int indexFolow = 0;
-        int repeatLetter= 0;
+        int repeatLetter = 0;
         while (indexFolow < startArray.length) {
             for (int i = 0; i < array.size(); i++) {
                 char[] followArray = array.get(i);
@@ -42,7 +41,7 @@ public class MySolution {
             }
             index = 0;
             indexFolow++;
-            if (repeatLetter != indexFolow){
+            if (repeatLetter != indexFolow) {
                 return result.toString();
             }
         }

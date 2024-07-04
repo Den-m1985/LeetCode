@@ -6,8 +6,8 @@ class Data {
     private ListNode listNodeOutput = new ListNode();
 
     Data(int[] input, int[] output) {
-        listNode =fillNode(input, listNode);
-        listNodeOutput =fillNode(output, listNodeOutput);
+        listNode = fillNode(input, listNode);
+        listNodeOutput = fillNode(output, listNodeOutput);
     }
 
     ListNode getListNode() {
@@ -21,7 +21,7 @@ class Data {
     ListNode fillNode(int[] input, ListNode listNode) {
         if (input == null)
             return null;
-        if (input.length == 0){
+        if (input.length == 0) {
             listNode.val = -101;
             return listNode;
         }
@@ -34,7 +34,7 @@ class Data {
         for (int i = 1; i < input.length; i++) {
             ListNode listNodeLast = getLastNode(listNode);
             ListNode listNodeCurrent = new ListNode();
-            if (i == input.length-1) {
+            if (i == input.length - 1) {
                 listNodeCurrent.val = input[i];
                 listNodeLast.next = listNodeCurrent;
                 break;

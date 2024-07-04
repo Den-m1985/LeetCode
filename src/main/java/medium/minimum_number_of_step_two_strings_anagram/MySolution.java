@@ -2,7 +2,7 @@ package medium.minimum_number_of_step_two_strings_anagram;
 
 import java.util.*;
 
-public class MySolution {
+class MySolution {
     public int minSteps(String s, String t) {
         if (s.length() <= 1) {
             return 0;

@@ -2,7 +2,7 @@ package medium.insert_greatest_common_divisors_in_linked_list;
 
 class MySolution {
 
-    ListNode insertGreatestCommonDivisors(ListNode head) {
+    public ListNode insertGreatestCommonDivisors(ListNode head) {
         if (head.next == null) {
             return head;
         }

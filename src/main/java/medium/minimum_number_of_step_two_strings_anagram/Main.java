@@ -3,7 +3,7 @@ package medium.minimum_number_of_step_two_strings_anagram;
 import java.util.ArrayList;
 import java.util.Timer;
 
-public class Main {
+class Main {
     /*
     1347. Minimum Number of Steps to Make Two Strings Anagram
     You are given two strings of the same length s and t.
@@ -38,36 +38,36 @@ public class Main {
         ArrayList<Data> arrayData = fillArray();
         for (Data data : arrayData) {
             long start = System.nanoTime();
-            int result = new MySolution().minSteps(data.s, data.t);
-            System.out.println("My solution: " + checkResult(result, data.output));
+            int result = new MySolution().minSteps(data.s(), data.t());
+            System.out.println("My solution: " + checkResult(result, data.output()));
             long end = System.nanoTime();
-            System.out.println("Time in mlSec: " + (end - start)/1000000);
+            System.out.println("Time in mlSec: " + (end - start) / 1000000);
         }
         for (Data data : arrayData) {
             long start = System.nanoTime();
-            int result = new Solution1().minSteps(data.s, data.t);
-            System.out.println("Solution1: " + checkResult(result, data.output));
+            int result = new Solution1().minSteps(data.s(), data.t());
+            System.out.println("Solution1: " + checkResult(result, data.output()));
             long end = System.nanoTime();
-            System.out.println("Time in mlSec: " + (end - start)/1000000);
+            System.out.println("Time in mlSec: " + (end - start) / 1000000);
         }
         for (Data data : arrayData) {
             long start = System.nanoTime();
-            int result = new Solution2().minSteps(data.s, data.t);
-            System.out.println("Solution2: " + checkResult(result, data.output));
+            int result = new Solution2().minSteps(data.s(), data.t());
+            System.out.println("Solution2: " + checkResult(result, data.output()));
             long end = System.nanoTime();
-            System.out.println("Time in mlSec: " + (end - start)/1000000);
+            System.out.println("Time in mlSec: " + (end - start) / 1000000);
         }
 
 
     }
 
 
-    public static ArrayList<Data> fillArray() {
+    static ArrayList<Data> fillArray() {
         ArrayList<Data> arrayData = new ArrayList<>();
-        Data data1 = new Data("bab","aba", 1);
-        Data data2 = new Data("leetcode","practice", 5);
-        Data data3 = new Data("anagram","mangaar", 0);
-        Data data4 = new Data(new BigData().s,new BigData().t, 355); //output ?????
+        Data data1 = new Data("bab", "aba", 1);
+        Data data2 = new Data("leetcode", "practice", 5);
+        Data data3 = new Data("anagram", "mangaar", 0);
+        Data data4 = new Data(new BigData().s, new BigData().t, 355); //output ?????
 
         arrayData.add(data1);
         arrayData.add(data2);
@@ -76,7 +76,7 @@ public class Main {
         return arrayData;
     }
 
-    public static boolean checkResult(int input, int output) {
+    static boolean checkResult(int input, int output) {
         return input == output;
     }
 

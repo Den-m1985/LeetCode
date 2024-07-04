@@ -2,7 +2,7 @@ package medium.partitioning_into_minimum_number_of_deci_binary_numbers;
 
 import java.util.ArrayList;
 
-public class Main {
+class Main {
     /*
     1689. Partitioning Into Minimum Number Of Deci-Binary Numbers
     A decimal number is called deci-binary if each of its digits
@@ -34,12 +34,12 @@ public class Main {
         ArrayList<Data> arrayData = fillArray();
 
         for (Data data : arrayData) {
-            int result = new MySolution().minPartitions(data.input);
-            System.out.println("My solution: " + checkResult(result, data.output));
+            int result = new MySolution().minPartitions(data.input());
+            System.out.println("My solution: " + checkResult(result, data.output()));
         }
     }
 
-    public static ArrayList<Data> fillArray() {
+    static ArrayList<Data> fillArray() {
         ArrayList<Data> arrayData = new ArrayList<>();
         Data data1 = new Data("32", 3);
         Data data2 = new Data("82734", 8);
@@ -50,7 +50,7 @@ public class Main {
         return arrayData;
     }
 
-    public static boolean checkResult(int result, int output) {
+    static boolean checkResult(int result, int output) {
         return result == output;
     }
 

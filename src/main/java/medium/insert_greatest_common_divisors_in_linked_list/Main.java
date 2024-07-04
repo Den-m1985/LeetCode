@@ -33,7 +33,7 @@ class Main {
     The number of nodes in the list is in the range [1, 5000].
     1 <= Node.val <= 1000
      */
-    static void main(String[] args) {
+    public static void main(String[] args) {
         ArrayList<Data> arrayData =fillArray();
         for (Data data:arrayData) {
             ListNode result = new MySolution().insertGreatestCommonDivisors(data.getListNode());

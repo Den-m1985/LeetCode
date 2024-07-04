@@ -1,11 +1,8 @@
 package medium.insert_greatest_common_divisors_in_linked_list;
 
-import java.util.LinkedList;
+class MySolution {
 
-public class MySolution {
-    // Input: head = [18,6,10,3]
-    //    Output: [18,6,6,2,10,1,3]
-    public ListNode insertGreatestCommonDivisors(ListNode head) {
+    ListNode insertGreatestCommonDivisors(ListNode head) {
         if (head.next == null) {
             return head;
         }
@@ -17,7 +14,7 @@ public class MySolution {
                 newList.val = lastDigit; // set first digit
             } else {
                 int currentDigit = head.val;
-                int result = findCommomDivide(lastDigit, currentDigit);
+                int result = findCommonDivide(lastDigit, currentDigit);
                 insertNode(newList, result);  // set calculate digit
                 insertNode(newList, currentDigit);  // set current digit
                 lastDigit = head.val;
@@ -27,7 +24,7 @@ public class MySolution {
         return newList;
     }
 
-    public ListNode insertNode(ListNode list, int val) {
+    ListNode insertNode(ListNode list, int val) {
         ListNode new_node = new ListNode(val);
         new_node.next = null;
         ListNode last = getLastNode(list);
@@ -38,7 +35,7 @@ public class MySolution {
         return list;
     }
 
-    public ListNode getLastNode(ListNode listNode) {
+    ListNode getLastNode(ListNode listNode) {
         ListNode listNodeTemp = listNode;
         while (listNodeTemp.next != null) {
             listNodeTemp = listNodeTemp.next;
@@ -46,7 +43,7 @@ public class MySolution {
         return listNodeTemp;
     }
 
-    public int findCommomDivide(Integer lastDigit, int currentDigit) {
+    int findCommonDivide(Integer lastDigit, int currentDigit) {
         while (lastDigit != 0 && currentDigit != 0) {
             if (lastDigit > currentDigit) {
                 lastDigit = lastDigit % currentDigit;

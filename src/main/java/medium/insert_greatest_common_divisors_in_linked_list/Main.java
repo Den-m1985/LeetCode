@@ -2,7 +2,7 @@ package medium.insert_greatest_common_divisors_in_linked_list;
 
 import java.util.ArrayList;
 
-public class Main {
+class Main {
     /*
     2807. Insert Greatest Common Divisors in Linked List
     https://leetcode.com/problems/insert-greatest-common-divisors-in-linked-list/
@@ -33,19 +33,21 @@ public class Main {
     The number of nodes in the list is in the range [1, 5000].
     1 <= Node.val <= 1000
      */
-    public static void main(String[] args) {
+    static void main(String[] args) {
         ArrayList<Data> arrayData =fillArray();
         for (Data data:arrayData) {
-            long start = System.nanoTime();
             ListNode result = new MySolution().insertGreatestCommonDivisors(data.getListNode());
             boolean bool = check(result, data.getListNodeOutput());
             System.out.println("My solution " + bool);
-            long end = System.nanoTime();
-            System.out.println("Time in mlSec: " + (end - start)/1000000);
+        }
+        for (Data data:arrayData) {
+            ListNode result = new Solution1().insertGreatestCommonDivisors(data.getListNode());
+            boolean bool = check(result, data.getListNodeOutput());
+            System.out.println("Solution1 " + bool);
         }
     }
 
-    public static ArrayList<Data> fillArray() {
+    static ArrayList<Data> fillArray() {
         ArrayList<Data> arrayData = new ArrayList<>();
         Data data1 = new Data(new int[]{18,6,10,3}, new int[]{18,6,6,2,10,1,3});
         Data data2 = new Data(new int[]{7}, new int[]{7});
@@ -54,33 +56,23 @@ public class Main {
         return arrayData;
     }
 
-    public static boolean check(ListNode result, ListNode output){
+    static boolean check(ListNode result, ListNode output){
         if (result == null && output == null){
             return true;
         }
         if (result == null || output == null){
             return false;
         }
-        //ListNode listNodeResultCurrent = result;
-        //ListNode listNodeOutputCurrent = output;
         while (output.next != null || result.next !=null) {
             int resultCurrent = result.val;
             int resultOutput = output.val;
             if(resultOutput != resultCurrent){
                 return false;
             }
-            //listNodeResultCurrent = getLastNode(result);
-            //listNodeOutputCurrent = getLastNode(output);
+            output = output.next;
+            result = result.next;
         }
         return true;
     }
-
-//    public static ListNode getLastNode(ListNode listNode) {
-//        ListNode listNodeTemp = listNode;
-//        while (listNodeTemp.next != null) {
-//            listNodeTemp = listNodeTemp.next;
-//        }
-//        return listNodeTemp;
-//    }
 
 }
